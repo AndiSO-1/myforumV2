@@ -18,6 +18,6 @@
         <div>Aucune</div>
     @endforelse
     <div class="row m-3">
-        <a href="?controller=Reference&action=create" class="btn btn-primary">Ajouter</a>
+        <a href="{{ route('references.create') }}" class="btn btn-primary">Ajouter</a>
     </div>
 @endsection
