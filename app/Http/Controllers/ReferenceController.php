@@ -64,7 +64,8 @@ class ReferenceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reference = Reference::find($id);
+        return view ('references.update')->with(compact('reference'));
     }
 
     /**
@@ -76,7 +77,11 @@ class ReferenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reference = Reference::find($id);
+        $reference->description = $request->input('description');
+        $reference->url = $request->input('url');
+        $reference->save();
+        return view ('references.show')->with(compact('reference'));
     }
 
     /**
