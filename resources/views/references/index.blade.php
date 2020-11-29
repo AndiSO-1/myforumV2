@@ -21,3 +21,7 @@
         <a href="{{ route('references.create') }}" class="btn btn-primary">Ajouter</a>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="js/referencelist.js" defer></script>
+@endpush

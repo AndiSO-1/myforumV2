@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/views/references/referencelist.js','public/js/referencelist.js')
     .copy('node_modules/mdbootstrap', 'public/assets/mdbootstrap', false)
     .copy('node_modules/@fortawesome', 'public/assets/@fortawesome', false)
     .postCss('resources/css/app.css', 'public/css', [

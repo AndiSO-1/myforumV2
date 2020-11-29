@@ -10,6 +10,7 @@
     <script src="/assets/mdbootstrap/js/jquery.js"></script>
     <script src="/assets/mdbootstrap/js/bootstrap.js"></script>
     <script src="/assets/mdbootstrap/js/popper.js"></script>
+    @stack('scripts')
 </head>
 <body>
 <div class="w-100 bg-primary font-weight-bolder p-5 navbar"><a class="text-reset" href="/"><h1>My Forum</h1></a></div>
