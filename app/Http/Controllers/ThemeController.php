@@ -13,7 +13,7 @@ class ThemeController extends Controller
      */
     public function index()
     {
-        //
+        return view ('themes.index');
     }
 
     /**
