@@ -13,7 +13,8 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        return view ('references.index');
+        $references = [];
+        return view ('references.index')->with(compact('references'));
     }
 
     /**
