@@ -21,7 +21,11 @@
                 </div>
                 <div class="modal-footer flex-row justify-content-center">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <a class="btn btn-danger btn-ok" href="{{ route('references.destroy',$reference->id) }}">Confirmer</a>
+                    <form action="{{ route('references.destroy',$reference->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger btn-ok">Confirmer</button>
+                    </form>
                 </div>
             </div>
         </div>
