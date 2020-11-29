@@ -41,7 +41,7 @@ class ReferenceController extends Controller
         $reference->description = $request->input('description');
         $reference->url = $request->input('url');
         $reference->save();
-        return redirect(route('references.index'));
+        return redirect(route('references.index'))->with('message','Référence ajoutée');
     }
 
     /**
@@ -94,6 +94,6 @@ class ReferenceController extends Controller
     {
         $reference = Reference::find($id);
         $reference->delete();
-        return redirect(route('references.index'));
+        return redirect(route('references.index'))->with('message','Référence supprimée');
     }
 }

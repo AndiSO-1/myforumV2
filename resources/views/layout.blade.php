@@ -10,6 +10,7 @@
     <script src="/assets/mdbootstrap/js/jquery.js"></script>
     <script src="/assets/mdbootstrap/js/bootstrap.js"></script>
     <script src="/assets/mdbootstrap/js/popper.js"></script>
+    <script src="/js/app.js"></script>
     @stack('scripts')
 </head>
 <body>
@@ -41,6 +42,11 @@
         <li class="nav-item"><a href="{{ route('themes.index') }}" class="btn">Modération</a></li>
     </ul>
 </nav>
+@if ($message = Session::get('message'))
+    <div class="w-100 container text-center alert-success alert-block mb-3 flashmessage">
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
 <div class="container p-3">
     @yield ('content')
 </div>

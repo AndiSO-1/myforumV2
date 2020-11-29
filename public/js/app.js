@@ -19343,6 +19343,10 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.setTimeout(function () {
+  $('.flashmessage').addClass('d-none');
+}, 2000);
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
