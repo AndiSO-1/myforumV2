@@ -37,7 +37,11 @@ class ReferenceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reference = new Reference();
+        $reference->description = $request->input('description');
+        $reference->url = $request->input('url');
+        $reference->save();
+        return redirect(route('references.index'));
     }
 
     /**
