@@ -52,7 +52,8 @@ class ReferenceController extends Controller
      */
     public function show($id)
     {
-        //
+        $reference = Reference::find($id);
+        return view ('references.show')->with(compact('reference'));
     }
 
     /**
