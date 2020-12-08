@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ReferenceController;
+use App\Http\Controllers\API\ThemeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resources([
     'references' => ReferenceController::class,
+    'themes' => ThemeController::class,
 ]);
