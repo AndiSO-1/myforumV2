@@ -25,7 +25,8 @@ class ThemeController extends Controller
      */
     public function create()
     {
-        //
+        $theme = new theme();
+        return view ('themes.create')->with(compact('theme'));
     }
 
     /**
@@ -36,7 +37,10 @@ class ThemeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $theme = new theme();
+        $theme->name = $request->input('name');
+        $theme->save();
+        return redirect(route('themes.index'))->with('message','Theme ajouté');
     }
 
     /**
@@ -47,7 +51,8 @@ class ThemeController extends Controller
      */
     public function show($id)
     {
-        //
+        $theme = theme::find($id);
+        return view ('themes.show')->with(compact('theme'));
     }
 
     /**
@@ -58,7 +63,8 @@ class ThemeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $theme = theme::find($id);
+        return view ('themes.update')->with(compact('theme'));
     }
 
     /**
@@ -70,7 +76,10 @@ class ThemeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $theme = theme::find($id);
+        $theme->name = $request->input('name');
+        $theme->save();
+        return redirect(route('themes.show',$id))->with('message','Theme modifié');
     }
 
     /**
@@ -81,6 +90,8 @@ class ThemeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $theme = theme::find($id);
+        $theme->delete();
+        return redirect(route('themes.index'))->with('message','Theme supprimé');
     }
 }
