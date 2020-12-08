@@ -18,7 +18,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "mdbootstrap": "^4.19.1",
-        "@fortawesome/fontawesome-free": "^5.15.1"
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "jquery": "^3.5.1",
+        "mdbootstrap": "^4.19.1"
     }
 }

@@ -19388,8 +19388,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/Xavier/Documents/CPNV/Modules/2020-2021/T2/PRW2 (T1a)/myforum/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/Xavier/Documents/CPNV/Modules/2020-2021/T2/PRW2 (T1a)/myforum/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! D:\CPNV\laragon\www\myforumV2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\CPNV\laragon\www\myforumV2\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

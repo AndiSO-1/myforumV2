@@ -94,18 +94,16 @@
 /***/ (function(module, exports) {
 
 // JS code specific to the reference list page
-// Author: XCL
-// Date Oct 20
-titles = document.getElementsByClassName("divtitle");
-
-for (i = 0; i < titles.length; i++) {
-  titles[i].addEventListener('mouseover', function () {
-    document.getElementById('divIcons' + this.dataset.id).classList.remove('d-none');
-  });
-  titles[i].addEventListener('mouseout', function () {
-    document.getElementById('divIcons' + this.dataset.id).classList.add('d-none');
-  });
-}
+// Author: Andi Santos Oliveira
+// Date 8 Dec 2020
+$("tr td").on("mouseenter", function () {
+  $(this).parent().addClass("teal lighten-3");
+  $(this).parent().find("a").removeClass("d-none");
+});
+$("tr td").on("mouseleave", function () {
+  $(this).parent().removeClass("teal lighten-3");
+  $(this).parent().find("a").addClass("d-none");
+});
 
 /***/ }),
 
@@ -116,7 +114,7 @@ for (i = 0; i < titles.length; i++) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Xavier/Documents/CPNV/Modules/2020-2021/T2/PRW2 (T1a)/myforum/resources/views/references/referencelist.js */"./resources/views/references/referencelist.js");
+module.exports = __webpack_require__(/*! D:\CPNV\laragon\www\myforumV2\resources\views\references\referencelist.js */"./resources/views/references/referencelist.js");
 
 
 /***/ })

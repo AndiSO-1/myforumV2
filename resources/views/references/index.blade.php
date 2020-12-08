@@ -1,25 +1,31 @@
 @extends ('layout')
 
 @section ('content')
-    <h1 class="text-center p-5">Réferences</h1>
-    @forelse ($references as $reference)
-        <div class="row text-center divtitle" data-id="{{$reference->id}}">
-            <div class="col-2 text-right">
-                <div id="divIcons{{$reference->id}}" class="d-none">
-                    <a class="blacklink m-2" href="{{ $reference->url }}"><i class="fas fa-eye"></i></a>
-                    <a class="blacklink m-2" href="{{ route('references.show',$reference->id) }}"><i class="fas fa-search-plus"></i></a>
-                </div>
-            </div>
-            <div class="col-10 text-left">
-                {{ $reference->description }}
-            </div>
-        </div>
-    @empty
-        <div>Aucune</div>
-    @endforelse
-    <div class="row m-3">
-        <a href="{{ route('references.create') }}" class="btn btn-primary">Ajouter</a>
-    </div>
+    <h1 class="text-center p-5">List Reference</h1>
+
+    <table class="table table-striped">
+        <thead class="bg-default text-white">
+            <tr>
+                <th scope="col">Description</th>
+                <th class="text-right" scope="col">
+                    <a href="{{ route('references.create') }}" class="text-white"><i class="fas fa-plus fa-fw"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($references as $reference)
+                <tr data-id="{{$reference->id}}">
+                    <td>{{ $reference->description }}</td>
+                    <td class="text-right text-nowrap">
+                        <a class="d-none" href="{{ $reference->url }}"><i class="fas fa-eye fa-fw mr-2"></i></a>
+                        <a class="d-none" href="{{ route('references.show',$reference->id) }}"><i class="fas fa-pen fa-fw"></i></a>
+                    </td>
+                </tr>
+            @empty
+                <div>Aucune</div>
+            @endforelse
+        </tbody>
+    </table>
 @endsection
 
 @push('scripts')
