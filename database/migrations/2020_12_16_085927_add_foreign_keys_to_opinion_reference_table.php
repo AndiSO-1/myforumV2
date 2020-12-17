@@ -14,8 +14,8 @@ class AddForeignKeysToOpinionReferenceTable extends Migration {
 	{
 		Schema::table('opinion_reference', function(Blueprint $table)
 		{
-			$table->foreign('opinion_id', 'fk_references_has_opinions_opinions1')->references('id')->on('opinions')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('reference_id', 'fk_references_has_opinions_references1')->references('id')->on('references')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('opinion_id', 'fk_references_has_opinions_opinions2')->references('id')->on('opinions')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('reference_id', 'fk_references_has_opinions_references2')->references('id')->on('references')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
@@ -29,8 +29,8 @@ class AddForeignKeysToOpinionReferenceTable extends Migration {
 	{
 		Schema::table('opinion_reference', function(Blueprint $table)
 		{
-			$table->dropForeign('fk_references_has_opinions_opinions1');
-			$table->dropForeign('fk_references_has_opinions_references1');
+			$table->dropForeign('fk_references_has_opinions_opinions2');
+			$table->dropForeign('fk_references_has_opinions_references2');
 		});
 	}
 

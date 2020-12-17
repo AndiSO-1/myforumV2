@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateOpinionsTable extends Migration {
+class CreateTopicsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,13 @@ class CreateOpinionsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('opinions', function(Blueprint $table)
+		Schema::create('topics', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->string('description', 5000);
-			$table->integer('topic_id')->index('fk_opinions_topics1_idx');
-			$table->integer('user_id')->index('fk_opinions_users1_idx');
-			$table->integer('opinionstate_id')->index('fk_opinions_opinionstates1_idx');
+			$table->integer('theme_id')->index('fk_topics_themes_idx');
+			$table->integer('state_id')->index('fk_topics_states1_idx');
+			$table->integer('forumuser_id')->index('fk_topics_users1_idx');
 		});
 	}
 
@@ -30,7 +30,7 @@ class CreateOpinionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('opinions');
+		Schema::drop('topics');
 	}
 
 }

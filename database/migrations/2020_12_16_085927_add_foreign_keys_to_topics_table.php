@@ -16,7 +16,7 @@ class AddForeignKeysToTopicsTable extends Migration {
 		{
 			$table->foreign('state_id', 'fk_topics_states1')->references('id')->on('states')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 			$table->foreign('theme_id', 'fk_topics_themes')->references('id')->on('themes')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('user_id', 'fk_topics_users1')->references('id')->on('forumusers')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('forumuser_id', 'fk_topics_users1')->references('id')->on('forumusers')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 

@@ -15,8 +15,8 @@ class CreateOpinionReferenceTable extends Migration {
 		Schema::create('opinion_reference', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('reference_id')->index('fk_references_has_opinions_references1_idx');
 			$table->integer('opinion_id')->index('fk_references_has_opinions_opinions1_idx');
+            $table->integer('reference_id')->index('fk_references_has_opinions_references1_idx');
 			$table->unique(['reference_id','opinion_id'], 'UniqueReference');
 		});
 	}

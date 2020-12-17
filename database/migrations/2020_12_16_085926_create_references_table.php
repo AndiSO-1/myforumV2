@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateStatesTable extends Migration {
+class CreateReferencesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateStatesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('states', function(Blueprint $table)
+		Schema::create('references', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('name', 45)->unique('name_UNIQUE');
+			$table->string('description', 100);
+			$table->string('url', 2000)->nullable()->default('NULL');
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateStatesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('states');
+		Schema::drop('references');
 	}
 
 }
