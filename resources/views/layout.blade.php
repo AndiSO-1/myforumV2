@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/assets/mdbootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/assets/mdbootstrap/css/mdb.css">
     <link rel="stylesheet" href="/assets/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="/css/app.css">
     <script src="/assets/mdbootstrap/js/jquery.js"></script>
     <script src="/assets/mdbootstrap/js/bootstrap.js"></script>
     <script src="/assets/mdbootstrap/js/popper.js"></script>

@@ -11,7 +11,7 @@
             {{ $opinion->description }}
             @if($opinion->references->count() > 0)
                 <div id="accordion{{ $opinion->id }}" class="small grey-text">
-                    <div data-toggle="collapse" data-target="#collapse{{ $opinion->id }}" aria-expanded="true" aria-controls="collapse{{ $opinion->id }}" style="cursor: pointer;">
+                    <div class="cursor-pointer" data-toggle="collapse" data-target="#collapse{{ $opinion->id }}" aria-expanded="true" aria-controls="collapse{{ $opinion->id }}">
                         Références
                     </div>
                     <div id="collapse{{ $opinion->id }}" class="collapse" data-parent="#accordion{{ $opinion->id }}">
