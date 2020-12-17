@@ -24,31 +24,34 @@
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
             </button>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Gestion des thèmes</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('references.index') }}">Gestion des références</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('states.index') }}">Gestion des états</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Modération</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Utilisateur
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Alexandre</a>
-                        <a class="dropdown-item" href="#">Andi</a>
-                        <a class="dropdown-item" href="#">Cyril</a>
-                        <a class="dropdown-item" href="#">Dimitri</a>
-                        <a class="dropdown-item" href="#">Dylan</a>
-                        <a class="dropdown-item" href="#">Gabriel</a>
-                        <a class="dropdown-item" href="#">Mathieu</a>
-                        <a class="dropdown-item" href="#">Quentin</a>
-                        <a class="dropdown-item" href="#">Sou</a>
-                        <a class="dropdown-item" href="#">William</a>
-                        <a class="dropdown-item" href="#">Xavier</a>
-                    </div>
-                </li>
-            </ul>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Gestion des thèmes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('references.index') }}">Gestion des références</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('states.index') }}">Gestion des états</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Modération</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Utilisateur
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Alexandre</a>
+                            <a class="dropdown-item" href="#">Andi</a>
+                            <a class="dropdown-item" href="#">Cyril</a>
+                            <a class="dropdown-item" href="#">Dimitri</a>
+                            <a class="dropdown-item" href="#">Dylan</a>
+                            <a class="dropdown-item" href="#">Gabriel</a>
+                            <a class="dropdown-item" href="#">Mathieu</a>
+                            <a class="dropdown-item" href="#">Quentin</a>
+                            <a class="dropdown-item" href="#">Sou</a>
+                            <a class="dropdown-item" href="#">William</a>
+                            <a class="dropdown-item" href="#">Xavier</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     @if ($message = Session::get('message'))
