@@ -1,29 +1,28 @@
+
 @extends ('layout')
 
 @section ('content')
-    <div class="row">
-        <div class="bg-light col-2 border border-dark">Nom:</div>
-        <div class="col-10">{{ $theme->name }}</div>
-    </div>
-    <div class="row m-3">
-        <a href="#" data-toggle="modal" data-target="#confirm-delete" class="btn btn-danger">Supprimer</a>
-        <a href="{{ route('themes.edit',$theme->id) }}" class="btn btn-primary">Modifier</a>
-    </div>
-    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    Sûr et certain ???
-                </div>
-                <div class="modal-footer flex-row justify-content-center">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                    <form action="{{ route('themes.destroy',$theme->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-ok">Confirmer</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+  <h1 class="text-center p-4">{{ $theme->name }}</h1>
+
+  <div class="list-group-flush">
+      @foreach ($theme->topics as $topic)
+          <a href="{{ route('topics.show',$topic->id) }}" class="list-group-item list-group-item-action">
+              {{ $topic->description }} <span class="badge badge-default rounded-pill">{{ $topic->opinions->count() }}</span>
+          </a>
+      @endforeach
+  </div>
+
+  <div id="accordionnew">
+      <button class="btn btn-primary mt-4" data-toggle="collapse" data-target="#collapsenew" aria-expanded="true" aria-controls="collapsenew">
+          Ajouter un sujet
+      </button>
+      <div id="collapsenew" class="collapse mt-4" data-parent="#accordionnew">
+          <form action="{{ route('topics.store') }}" method="post">
+              @csrf
+              <textarea class="form-control" name="newtop"></textarea>
+              <button class="btn btn-success mt-4" type="submit">Envoyer</button>
+              <input type="hidden" name="theme" value="{{ $theme->id }}">
+          </form>
+      </div>
+  </div>
 @endsection

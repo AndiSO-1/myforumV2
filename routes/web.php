@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpinionController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\ReferenceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\TopicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,11 @@ use App\Http\Controllers\StateController;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::Resource('opinions',OpinionController::class);
 Route::Resource('references',ReferenceController::class);
 Route::Resource('roles',RoleController::class);
 Route::Resource('states',StateController::class);
 Route::Resource('themes',ThemeController::class);
-
+Route::Resource('topics',TopicController::class);
