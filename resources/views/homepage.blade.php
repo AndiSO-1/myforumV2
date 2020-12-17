@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section ('content')
-    <h1 class="text-center p-4">Themes</h1>
+    <h1 class="text-center p-5">Themes</h1>
 
     <div class="list-group-flush">
         @foreach ($themes as $theme)

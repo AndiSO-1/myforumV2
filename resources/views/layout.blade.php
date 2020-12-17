@@ -14,41 +14,50 @@
     @stack('scripts')
 </head>
 <body>
-<div class="w-100 bg-primary font-weight-bolder p-5 navbar"><a class="text-reset" href="/"><h1>My Forum</h1></a></div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Utilisateur
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Alexandre</a>
-                <a class="dropdown-item" href="#">Andi</a>
-                <a class="dropdown-item" href="#">Cyril</a>
-                <a class="dropdown-item" href="#">Dimitri</a>
-                <a class="dropdown-item" href="#">Dylan</a>
-                <a class="dropdown-item" href="#">Gabriel</a>
-                <a class="dropdown-item" href="#">Mathieu</a>
-                <a class="dropdown-item" href="#">Quentin</a>
-                <a class="dropdown-item" href="#">Sou</a>
-                <a class="dropdown-item" href="#">William</a>
-                <a class="dropdown-item" href="#">Xavier</a>
-            </div>
-        </li>
-        <li class="nav-item"><a href="{{ route('themes.index') }}" class="btn">Gestion des thèmes</a></li>
-        <li class="nav-item"><a href="{{ route('references.index') }}" class="btn">Gestion des références</a></li>
-        <li class="nav-item"><a href="{{ route('roles.index') }}" class="btn">Gestion des rôles</a></li>
-        <li class="nav-item"><a href="{{ route('states.index') }}" class="btn">Gestion des états</a></li>
-        <li class="nav-item"><a href="{{ route('themes.index') }}" class="btn">Modération</a></li>
-    </ul>
-</nav>
-@if ($message = Session::get('message'))
-    <div class="w-100 container text-center alert-success alert-block mb-3 flashmessage">
-        <strong>{{ $message }}</strong>
+    <nav class="navbar navbar-expand-lg navbar-dark teal lighten-2 text-white">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="/">My Forum</a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Gestion des thèmes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('references.index') }}">Gestion des références</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('states.index') }}">Gestion des états</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Modération</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Utilisateur
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Alexandre</a>
+                        <a class="dropdown-item" href="#">Andi</a>
+                        <a class="dropdown-item" href="#">Cyril</a>
+                        <a class="dropdown-item" href="#">Dimitri</a>
+                        <a class="dropdown-item" href="#">Dylan</a>
+                        <a class="dropdown-item" href="#">Gabriel</a>
+                        <a class="dropdown-item" href="#">Mathieu</a>
+                        <a class="dropdown-item" href="#">Quentin</a>
+                        <a class="dropdown-item" href="#">Sou</a>
+                        <a class="dropdown-item" href="#">William</a>
+                        <a class="dropdown-item" href="#">Xavier</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    @if ($message = Session::get('message'))
+        <div class="w-100 container text-center alert-success alert-block mb-3 flashmessage">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+    <div class="container p-3">
+        @yield ('content')
     </div>
-@endif
-<div class="container p-3">
-    @yield ('content')
-</div>
 </body>
 </html>

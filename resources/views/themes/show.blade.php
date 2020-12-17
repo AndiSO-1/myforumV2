@@ -2,7 +2,7 @@
 @extends ('layout')
 
 @section ('content')
-  <h1 class="text-center p-4">{{ $theme->name }}</h1>
+  <h1 class="text-center p-5">{{ $theme->name }}</h1>
 
   <div class="list-group-flush">
       @foreach ($theme->topics as $topic)
