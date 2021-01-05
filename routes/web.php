@@ -28,3 +28,9 @@ Route::Resource('roles',RoleController::class);
 Route::Resource('states',StateController::class);
 Route::Resource('themes',ThemeController::class);
 Route::Resource('topics',TopicController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
