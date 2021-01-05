@@ -22,7 +22,7 @@
 
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,24 +32,15 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('states.index') }}">Gestion des états</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Modération</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Utilisateur
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Alexandre</a>
-                            <a class="dropdown-item" href="#">Andi</a>
-                            <a class="dropdown-item" href="#">Cyril</a>
-                            <a class="dropdown-item" href="#">Dimitri</a>
-                            <a class="dropdown-item" href="#">Dylan</a>
-                            <a class="dropdown-item" href="#">Gabriel</a>
-                            <a class="dropdown-item" href="#">Mathieu</a>
-                            <a class="dropdown-item" href="#">Quentin</a>
-                            <a class="dropdown-item" href="#">Sou</a>
-                            <a class="dropdown-item" href="#">William</a>
-                            <a class="dropdown-item" href="#">Xavier</a>
-                        </div>
-                    </li>
+                    @if (Auth::user())
+                        <form method="post" class="nav-item" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="nav-link" href="#"
+                                onclick="event.preventDefault(); this.closest('form').submit();">Logout {{ Auth::user()->pseudo }}</a>
+                        </form>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
