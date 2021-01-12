@@ -18,7 +18,7 @@ class CreateTopicsTable extends Migration {
 			$table->string('description', 5000);
 			$table->integer('theme_id')->index('fk_topics_themes_idx');
 			$table->integer('state_id')->index('fk_topics_states1_idx');
-			$table->integer('forumuser_id')->index('fk_topics_users1_idx');
+			$table->integer('user_id')->index('fk_topics_users1_idx');
 		});
 	}
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToForumusersTable extends Migration {
+class AddForeignKeysToUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class AddForeignKeysToForumusersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('forumusers', function(Blueprint $table)
+		Schema::table('users', function(Blueprint $table)
 		{
 			$table->foreign('role_id', 'fk_fusers_roles1')->references('id')->on('roles')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
@@ -26,7 +26,7 @@ class AddForeignKeysToForumusersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('forumusers', function(Blueprint $table)
+		Schema::table('users', function(Blueprint $table)
 		{
 			$table->dropForeign('fk_fusers_roles1');
 		});
