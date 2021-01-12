@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="password">Password</label>
+            <label class="form-label" for="password">Mot de passe</label>
             <x-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" />
         </div>
 
@@ -28,22 +28,23 @@
                 <div class="form-check">
                     <label for="remember_me" class="inline-flex items-center">
                         <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
-                        <label class="form-check-label" for="remember_me">Remember me</label>
+                        <label class="form-check-label" for="remember_me">Se souvenir de moi</label>
                     </label>
                 </div>
 
             </div>
 
-            <div class="col">
+            <div class="col text-center">
                 @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}">
-                        Forgot password?
-                    </a>
+                    <a href="{{ route('password.request') }}">Mot de passe oublié ?</a>
                 @endif
+            </div>
+            <div class="col text-center">
+                <a href="{{ route('register') }}">Créer un compte</a>
             </div>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
     </form>
 @endsection
