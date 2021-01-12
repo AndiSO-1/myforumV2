@@ -3,11 +3,11 @@
 
 @section ('content')
     <h1 class="text-center p-4">{{ $topic->description }} <span class="badge rounded-pill bg-default">{{ $topic->theme->name }}</span></h1>
-    <div class="small mb-3">Proposé par <span class="badge bg-primary">{{ $topic->forumuser->pseudo }}</span></div>
+    <div class="small mb-3">Proposé par <span class="badge bg-primary">{{ $topic->user->pseudo }}</span></div>
 
     @forelse ($topic->opinions as $opinion)
         <div class="p-2 ml-2">
-            <span class="badge teal lighten-6">{{ $opinion->forumuser->first_name }}</span></br>
+            <span class="badge teal lighten-6">{{ $opinion->user->first_name }}</span></br>
             {{ $opinion->description }}
             @if($opinion->references->count() > 0)
                 <div id="accordion{{ $opinion->id }}" class="small grey-text">

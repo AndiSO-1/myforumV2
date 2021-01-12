@@ -20,9 +20,9 @@ class Opinion extends Model
     * The user who emitted the opinion
     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
     */
-    public function forumuser()
+    public function user()
     {
-        return $this->belongsTo(ForumUser::class);
+        return $this->belongsTo(User::class);
     }
 
     public function references()

@@ -25,9 +25,9 @@ class Topic extends Model
     * The user who submitted the topic
     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
     */
-   public function forumuser()
+   public function user()
    {
-       return $this->belongsTo(ForumUser::class);
+       return $this->belongsTo(User::class);
    }
 
    public function state()

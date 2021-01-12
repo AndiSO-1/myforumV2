@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ForumUser;
+use App\Models\User;
 use App\Models\State;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -42,7 +43,7 @@ class TopicController extends Controller
         $newtopic = new Topic();
         // record the topic's description
         $newtopic->description = $request->input('newtop');
-        $newtopic->forumuser()->associate(ForumUser::all()->random()); // TODO assign the user that is logged in when authentication is in place
+        $newtopic->user()->associate(Auth::user());
         $initialstate = State::where('slug','PROPOSED')->first();
         $newtopic->state()->associate($initialstate);
         $newtopic->theme()->associate($themeid);
