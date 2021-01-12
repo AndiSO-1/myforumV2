@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Opinion;
+use Illuminate\Support\Facades\Auth;
+
 
 class OpinionController extends Controller
 {
@@ -80,5 +83,18 @@ class OpinionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Store a newly created comment in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function newComment(Request $request)
+    {
+        $opinion = Opinion::find($request->input('opinionid'));
+        $opinion->comments()->attach(Auth::user(), ['comment' => $request->input('newcomment'), 'points' => $request->input('newpoints')]);
+        return redirect(route('topics.show', $opinion->topic))->with('message', 'Commentaire ajouté');
     }
 }

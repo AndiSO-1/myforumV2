@@ -23,6 +23,7 @@ use App\Http\Controllers\TopicController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::Resource('opinions',OpinionController::class);
+Route::post('opinions/comment', [OpinionController::class, 'newComment'])->name('opinions.comment');
 Route::Resource('references',ReferenceController::class);
 Route::Resource('roles',RoleController::class);
 Route::Resource('states',StateController::class);
