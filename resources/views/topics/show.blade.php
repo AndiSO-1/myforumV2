@@ -40,33 +40,39 @@
                     @endforeach
                 </div>
             @endif
+            @if (Auth::user()->can('comment',\App\Models\Opinion::class) || Auth::user()->can('commentOpinion',$opinion,\App\Models\Opinion::class))
+                <div class="border-top mt-2 pt-3">
+                    <!-- Form to add a comment -->
+                    <form method="POST" action="{{ route('opinions.comment') }}">
+                        @csrf
 
-            <div class="border-top mt-2 pt-3">
-                <!-- Form to add a comment -->
-                <form method="POST" action="{{ route('opinions.comment') }}">
-                    @csrf
+                        <!-- id caché de l'opinion -->
+                        <input type="hidden" name="opinionid" value="{{ $opinion->id }}">
 
-                    <!-- id caché de l'opinion -->
-                    <input type="hidden" name="opinionid" value="{{ $opinion->id }}">
-
-                    <div class="row mb-4">
-                        <div class="col">
-                            <!-- Commentaire -->
-                            <div class="form-outline">
-                                <input class="form-control" type="text" name="newcomment" :value="old('comment')" placeholder="Commentaire" required autofocus />
+                        <div class="row mb-4">
+                            <div class="col">
+                                <!-- Commentaire -->
+                                <div class="form-outline">
+                                    <input class="form-control" type="text" name="newcomment" :value="old('comment')" placeholder="Commentaire" required autofocus />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <!-- Points -->
+                                <div class="form-outline">
+                                    <input class="form-control" type="number" min="-1" max="1" name="newpoints" :value="old('points')"  placeholder="Points" required autofocus />
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <!-- Points -->
-                            <div class="form-outline">
-                                <input class="form-control" type="number" min="-1" max="1" name="newpoints" :value="old('points')"  placeholder="Points" required autofocus />
-                            </div>
-                        </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-orange btn-block lighten-3">Commenter</button>
-                </form>
-            </div>
+                        <button type="submit" class="btn btn-orange btn-block lighten-3">Commenter</button>
+                    </form>
+                </div>
+            @endif
+            @cannot('comment',\App\Models\Opinion::class)
+                <div class="border-top mt-2 pt-3">
+                    Vous n'avez pas postez suffisament d'opinions!  ({{ Auth::user()->opinions->count() }}) pour être autorisé à commenter des opinions où vous n'êtes pas nommément cité
+                </div>
+            @endcannot
 
         </div>
     @empty
