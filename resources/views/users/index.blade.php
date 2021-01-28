@@ -18,8 +18,8 @@
                 <tr data-id="{{$user->id}}">
                     <td>{{ $user->pseudo }}</td>
                     <td>{{ $user->role->name }} </td>
-                    @if (Auth::user()->id !== $user->id && $nbAdmin < 5 && Auth::user()->role->slug == 'ADMI')
-                        @if ($user->role->slug !== 'ADMI')
+                    @if (Auth::user()->id !== $user->id && Auth::user()->role->slug == 'ADMI')
+                        @if ($user->role->slug !== 'ADMI' && $nbAdmin < 5)
                             <td>
                                 <form action="{{ route('users.setAdmin') }}" method="post">
                                     @csrf
@@ -27,7 +27,7 @@
                                     <input type="hidden" name="userid" value="{{ $user->id }}">
                                 </form>
                             </td>
-                        @else
+                        @elseif ($user->role->slug === 'ADMI')
                             <td>
                                 <form action="{{ route('users.setStud') }}" method="post">
                                     @csrf
