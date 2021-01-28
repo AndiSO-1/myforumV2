@@ -31,6 +31,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('references.index') }}">Gestion des références</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('states.index') }}">Gestion des états</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Utilisateurs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('themes.index') }}">Modération</a></li>
                     @if (Auth::user())
                         <form method="post" class="nav-item" action="{{ route('logout') }}">
