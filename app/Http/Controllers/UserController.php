@@ -72,18 +72,21 @@ class UserController extends Controller
      */
     public function setAdmin(Request $request)
     {
-        $user = user::find($request->input('userid'));
-        if ($user != null)
+        if (Auth::user()->role->slug == 'ADMI')
         {
-            $role = role::where('slug','ADMI')->first();
+            $user = user::find($request->input('userid'));
+            if ($user != null)
+            {
+                $role = role::where('slug','ADMI')->first();
 
-            $user->role()->associate($role->id);
-            $user->save();
+                $user->role()->associate($role->id);
+                $user->save();
 
-            return redirect(route('users.index'))->with('message',"{$user->pseudo} est maintenant admin !");
-        }
-        else {
-            return redirect(route('users.index'))->with('message',"Une erreur est survenue.");
+                return redirect(route('users.index'))->with('message',"{$user->pseudo} est maintenant admin !");
+            }
+            else {
+                return redirect(route('users.index'))->with('message',"Une erreur est survenue.");
+            }
         }
     }
 
@@ -95,18 +98,21 @@ class UserController extends Controller
      */
     public function setStud(Request $request)
     {
-        $user = user::find($request->input('userid'));
-        if ($user != null)
+        if (Auth::user()->role->slug == 'ADMI')
         {
-            $role = role::where('slug','STUD')->first();
+            $user = user::find($request->input('userid'));
+            if ($user != null)
+            {
+                $role = role::where('slug','STUD')->first();
 
-            $user->role()->associate($role->id);
-            $user->save();
+                $user->role()->associate($role->id);
+                $user->save();
 
-            return redirect(route('users.index'))->with('message',"{$user->pseudo} est maintenant étudiant !");
-        }
-        else {
-            return redirect(route('users.index'))->with('message',"Une erreur est survenue.");
+                return redirect(route('users.index'))->with('message',"{$user->pseudo} est maintenant étudiant !");
+            }
+            else {
+                return redirect(route('users.index'))->with('message',"Une erreur est survenue.");
+            }
         }
     }
 
