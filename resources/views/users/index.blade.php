@@ -8,7 +8,7 @@
             <tr>
                 <th scope="col">Pseudo</th>
                 <th scope="col">Role</th>
-                @if ($nbAdmin < 5)
+                @if ($nbAdmin < 5 && Auth::user()->role->slug == 'ADMI')
                     <th scope="col"></th>
                 @endif
             </tr>
@@ -18,7 +18,7 @@
                 <tr data-id="{{$user->id}}">
                     <td>{{ $user->pseudo }}</td>
                     <td>{{ $user->role->name }} </td>
-                    @if (Auth::user()->id !== $user->id && $nbAdmin < 5)
+                    @if (Auth::user()->id !== $user->id && $nbAdmin < 5 && Auth::user()->role->slug == 'ADMI')
                         @if ($user->role->slug !== 'ADMI')
                             <td>
                                 <form action="{{ route('users.setAdmin') }}" method="post">
