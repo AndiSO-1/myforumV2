@@ -24,14 +24,14 @@ use App\Http\Controllers\UserController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::middleware('auth')->group(function(){
-    Route::Resource('opinions',OpinionController::class);
+    Route::Resource('opinions',OpinionController::class)->register();
     Route::post('opinions/comment', [OpinionController::class, 'newComment'])->name('opinions.comment');
-    Route::Resource('references',ReferenceController::class);
-    Route::Resource('roles',RoleController::class);
-    Route::Resource('states',StateController::class);
-    Route::Resource('themes',ThemeController::class);
-    Route::Resource('topics',TopicController::class);
-    Route::Resource('users',UserController::class);
+    Route::Resource('references',ReferenceController::class)->register();
+    Route::Resource('roles',RoleController::class)->register();
+    Route::Resource('states',StateController::class)->register();
+    Route::Resource('themes',ThemeController::class)->register();
+    Route::Resource('topics',TopicController::class)->register();
+    Route::Resource('users',UserController::class)->register();
     Route::post('users/admi',[UserController::class, 'setAdmin'])->name('users.setAdmin');
     Route::post('users/stud',[UserController::class, 'setStud'])->name('users.setStud');
 
